@@ -29,9 +29,14 @@ export class FetchApiDataService {
     );
   }
   // Retrieve all movies
-  getMovies(movies: any): Observable<any> {
-    console.log(movies);
-    return this.http.get(apiURL + 'movies', movies).pipe(
+  getAllMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(apiURL + 'movies', {
+      headers: new HttpHeaders(
+        {
+          Authorization: `Bearer ${token}`,
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }
