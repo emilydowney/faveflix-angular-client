@@ -14,6 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list'
 import { FormsModule } from '@angular/forms';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -23,6 +26,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GenreCardComponent } from './genre-card/genre-card.component';
 import { DirectorCardComponent } from './director-card/director-card.component';
 import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -41,7 +47,10 @@ const appRoutes: Routes = [
     UserProfileComponent,
     GenreCardComponent,
     DirectorCardComponent,
-    SynopsisCardComponent
+    SynopsisCardComponent,
+    NavbarComponent,
+    FavoriteListComponent,
+    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +64,9 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatSnackBarModule,
     MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatGridListModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],

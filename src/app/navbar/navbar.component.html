@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>FaveFlix</span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon (click)="openMovies()">home</mat-icon>
+        <span>Home</span>
+      </button>
+      <button mat-menu-item (click)="openProfile()">
+        <mat-icon>account_circle</mat-icon>
+        <span>My Profile</span>
+      </button>
+      <button mat-menu-item (click)="userLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

@@ -16,14 +16,12 @@ export class FetchApiDataService {
   }
   // User registration
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http.post(apiURL + 'users', userDetails).pipe(
       catchError(this.handleError)
     );
   }
   // User login
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
     return this.http.post(apiURL + 'login', userDetails).pipe(
       catchError(this.handleError)
     );
@@ -63,24 +61,40 @@ export class FetchApiDataService {
   }
   // Gets single user
   getUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    let token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.get(apiURL + `users/${username}`, userDetails).pipe(
+    return this.http.get(apiURL + `users/${username}`, {
+      headers: new HttpHeaders(
+        {
+          Authorization: `Bearer ${token}`,
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }
   // Retrieves user's favorites
   getFavorites(favorites: any): Observable<any> {
     const username = localStorage.getItem('user');
-    return this.http.get(apiURL + `users/${username}/favorites`, favorites).pipe(
+    let token = localStorage.getItem('token');
+    return this.http.get(apiURL + `users/${username}/favorites`, {
+      headers: new HttpHeaders(
+        {
+          Authorization: `Bearer ${token}`,
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }
   // Adds favorite to list
-  addFavorite(movieID: any): Observable<any> {
-    console.log(movieID);
+  addFavorite(_id: string): Observable<any> {
     const username = localStorage.getItem('user');
-    return this.http.post(apiURL + `users/${username}/favorites/:movieID`, movieID).pipe(
+    let token = localStorage.getItem('token');
+    return this.http.post(apiURL + `users/${username}/favorites/` + _id, {
+      headers: new HttpHeaders(
+        {
+          Authorization: `Bearer ${token}`,
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }
@@ -95,17 +109,27 @@ export class FetchApiDataService {
 
   // Edits user information
   editUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    let token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.put(apiURL + `users/${username}`, userDetails).pipe(
+    return this.http.put(apiURL + `users/${username}`, {
+      headers: new HttpHeaders(
+        {
+          Authorization: `Bearer ${token}`,
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }
   // Removes user from DB
   deleteUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    let token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
-    return this.http.delete(apiURL + `users/${username}`, userDetails).pipe(
+    return this.http.delete(apiURL + `users/${username}`, {
+      headers: new HttpHeaders(
+        {
+          Authorization: `Bearer ${token}`,
+        })
+    }).pipe(
       catchError(this.handleError)
     );
   }

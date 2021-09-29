@@ -29,10 +29,6 @@ export class LoginFormComponent implements OnInit {
       localStorage.setItem('user', response.user.Username);
 
       this.dialogRef.close();
-      console.log(response);
-      this.snackBar.open(response, 'Ok', {
-        duration: 2000
-      });
       this.router.navigate(['movies']);
     }, (response) => {
       this.snackBar.open(response, 'Ok', {

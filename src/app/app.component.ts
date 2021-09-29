@@ -8,11 +8,4 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'myFlix-Angular-client';
-
-  // Opens movies dialog
-  // openMoviesDialog(): void {
-  // this.dialog.open(MovieCardComponent, {
-  // width: '500px'
-  //});
-  //}
 }
