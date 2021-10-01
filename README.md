@@ -1,27 +1,35 @@
-# MyFlixAngularClient
-
+# FaveFlix - Angular
+Angular client-side for a movie application calle FaveFlix. Built using existing server-side code (REST API and database). Users are ables to create accounts and view some of their favorite movies.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
-## Development server
+# Links
+A live deploy can be found at https://emilydowney.github.io/faveflix-angular-client/welcome
+
+
+API used: https://github.com/emilydowney/movie_api
+
+# Features
+* Allows users to create their own account and login to their personal profile.
+* Returns a list of all movies in the connected database.
+* Users can add and remove movies from their favorite movie's list.
+* Clicking on individual movie details gives more information about the movie's director, genre, synopsis, etc.
+
+# Technologies Used
+* TypeScript
+* HTML/CSS
+* JavaScript
+* Angular
+* Material Design
+
+## Build Instructions
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
+### Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
