@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { UpdateProfileComponent } from '../update-profile/update-profile.component';
@@ -10,6 +10,13 @@ import { UpdateProfileComponent } from '../update-profile/update-profile.compone
 })
 export class UserProfileComponent implements OnInit {
   user: any = {};
+
+  @Input() data = {
+    Username: '',
+    Password: '',
+    Email: '',
+    Birthday: ''
+  }
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -28,9 +35,11 @@ export class UserProfileComponent implements OnInit {
     console.log(user);
   }
 
-  openUpdates(): void {
-    this.dialog.open(UpdateProfileComponent, {
-      width: '500px'
+  updateUser(): void {
+    this.fetchApiData.editUser(this.data).subscribe((res) => {
+      localStorage.setItem('user', res.Username)
+      console.log(res)
+      alert('Profile successfully updated.')
     });
   }
 }
