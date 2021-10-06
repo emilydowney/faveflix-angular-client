@@ -8,6 +8,9 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
+/**
+ * Component displaying the navigation bar
+ */
 export class NavbarComponent implements OnInit {
 
   constructor(
@@ -18,17 +21,29 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  /**
+   * Function to open the user profile
+   */
   openProfile(): void {
     this.dialog.open(UserProfileComponent, {
       width: '500px'
     });
   }
-
+  /**
+   * Function to open movies list
+   */
   openMovies(): void {
     this.router.navigate(['movies']);
   }
-
+  /**
+   * Function to open user's favorite movies
+   */
+  openFavorites(): void {
+    this.router.navigate(['favorites']);
+  }
+  /**
+   * Function to logout the user
+   */
   userLogout(): void {
     this.router.navigate(['welcome']);
     localStorage.removeItem('token');

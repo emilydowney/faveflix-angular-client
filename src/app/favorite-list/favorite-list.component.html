@@ -1,1 +1,27 @@
-<p>favorite-list works!</p>
+<app-navbar></app-navbar>
+<div class="card" style="display: flex;">
+  <mat-card class="content" *ngFor="let movie of favorites;">
+    <mat-card-header>
+      <mat-card-title>{{movie.Title}}</mat-card-title>
+      <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img src={{movie.ImageURL}} alt={{movie.Title}} style="max-height: 200px;" />
+    <mat-card-actions>
+      <button class="actions" mat-button (click)="getGenre(movie.Genre.Name, movie.Genre.Description)" color="primary">
+        Genre
+      </button>
+      <button class="actions" mat-button (click)="getDirector(movie.Director.Name, movie.Director.Bio)" color="primary">
+        Director
+      </button>
+      <button class="actions" mat-button color="primary" (click)="getSynopsis(movie.Description)">
+        Synopsis
+      </button>
+      <div class="heart">
+        <mat-icon *ngIf="!favoriteStatus(movie._id)" (click)="addFavorite(movie._id, movie.title)">favorite_border
+        </mat-icon>
+        <mat-icon *ngIf="favoriteStatus(movie._id)" (click)="removeFavorite(movie._id, movie.title)">favorite</mat-icon>
+      </div>
+    </mat-card-actions>
+
+  </mat-card>
+</div>

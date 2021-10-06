@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
+
+/**
+ * Component displaying the login form
+ */
 export class LoginFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '' };
@@ -22,7 +26,10 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  /**
+   * Function to login users
+   * @param userData
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
       localStorage.setItem('token', response.token);

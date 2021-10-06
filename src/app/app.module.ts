@@ -28,13 +28,13 @@ import { DirectorCardComponent } from './director-card/director-card.component';
 import { SynopsisCardComponent } from './synopsis-card/synopsis-card.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FavoriteListComponent } from './favorite-list/favorite-list.component';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
   { path: 'users', component: UserProfileComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: 'favorites', component: FavoriteListComponent }
 ];
 
 @NgModule({
@@ -50,7 +50,6 @@ const appRoutes: Routes = [
     SynopsisCardComponent,
     NavbarComponent,
     FavoriteListComponent,
-    UpdateProfileComponent
   ],
   imports: [
     BrowserModule,
